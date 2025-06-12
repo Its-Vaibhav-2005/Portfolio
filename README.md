@@ -1,8 +1,7 @@
-
 # Vaibhav Pandey
 
 📧 [pandey.vaibhav311005@gmail.com](mailto:pandey.vaibhav311005@gmail.com) | 📞 +91 9555788790
-🌐 [LinkedIn](https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/) | [GitHub](https://github.com/Its-Vaibhav-2005) | [HackerRank](https://www.hackerrank.com/profile/pandey_vaibhav32)
+🌐 [LinkedIn](https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/) | [GitHub](https://github.com/Its-Vaibhav-2005) | [LeetCode](https://leetcode.com/u/vaibhav_pandey_2005/) | [HackerRank](https://www.hackerrank.com/profile/pandey_vaibhav32)
 📍 Kanpur, Uttar Pradesh, India
 
 ---
@@ -95,7 +94,7 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 **Technologies:** Python, Qiskit, Quantum Computing
 
-* Researched and simulated the effect of Shor’s Algorithm on RSA encryption.
+* Researched and simulated the effect of Shor's Algorithm on RSA encryption.
 * Built quantum circuits using IBM Qiskit for simulating factorization.
 * Analyzed vulnerabilities in classical cryptosystems through quantum models.
 * Explored cryptography and quantum computing intersection at research level.
@@ -128,7 +127,29 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 **Technologies:** Python, Flask, GitHub OAuth
 
 * Built simple GitHub login integration using OAuth for web applications.
-* Managed repository information using GitHub’s REST APIs post authentication.
+* Managed repository information using GitHub's REST APIs post authentication.
+
+---
+
+### [Quantum Hash Circuits](https://github.com/Its-Vaibhav-2005/Quantum-Hash-Circuits) — *Quantum Computing Research*
+
+**Technologies:** Python, Qiskit, Quantum Computing, Cryptography
+
+* Implemented and experimented with Quantum Hash Circuits for 4-16 qubits using IBM Qiskit.
+* Developed modular and reusable quantum circuits for post-quantum cryptography applications.
+* Explored quantum circuit optimization and implementation for various qubit configurations.
+* Contributed to research in quantum cryptography and hash function development.
+
+---
+
+### [Sound Therapy](https://github.com/Its-Vaibhav-2005/Sound-Therapy) — *Health Tech Application*
+
+**Technologies:** Python, Audio Processing, Signal Processing
+
+* Developed a sound therapy application using binaural beats for stress reduction and focus enhancement.
+* Implemented various frequency patterns for different therapeutic effects (relaxation, cognition, sleep).
+* Created an intuitive interface for users to access different sound therapy sessions.
+* Integrated scientific research on sound frequencies and their effects on mental well-being.
 
 ---
 

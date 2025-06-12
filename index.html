@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Vaibhav Pandey | Quantum Computing, Gen AI, Flask & Python Developer Portfolio</title>
+    <title>Vaibhav Pandey | Backend Developer, AI Engineer & Data Analyst Portfolio</title>
     
-    <meta name="description" content="Vaibhav Pandey's portfolio showcasing expertise in Quantum Computing, Generative AI, Flask, Python Development, and cutting-edge technologies.">
-    <meta name="keywords" content="Vaibhav Pandey, Quantum Computing, Generative AI, Gen AI, Flask Developer, Python Developer, AI Engineer, Machine Learning, Deep Learning, Full Stack Developer, Backend Developer, Data Science, Quantum Algorithms, Software Engineer">
+    <meta name="description" content="Vaibhav Pandey's portfolio showcasing expertise in Backend Development, AI Engineering, Data Analysis, Quantum Computing, and Python Development.">
+    <meta name="keywords" content="Vaibhav Pandey, Backend Developer, AI Engineer, Data Analyst, Quantum Computing, Python Developer, Machine Learning, Deep Learning, Data Science, Quantum Algorithms, Software Engineer">
     <meta name="author" content="Vaibhav Pandey">
 
-    <meta property="og:title" content="Vaibhav Pandey | Quantum Computing, Gen AI, Flask & Python Developer">
-    <meta property="og:description" content="Explore Vaibhav Pandey's professional portfolio in Quantum Computing, Gen AI, Flask, Python, and AI technologies.">
+    <meta property="og:title" content="Vaibhav Pandey | Backend Developer, AI Engineer & Data Analyst">
+    <meta property="og:description" content="Explore Vaibhav Pandey's professional portfolio in Backend Development, AI Engineering, Data Analysis, and cutting-edge technologies.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://your-portfolio-url.com">
     <meta property="og:image" content="https://your-portfolio-url.com/preview-image.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vaibhav Pandey | Quantum, Gen AI, Flask & Python Expert">
-    <meta name="twitter:description" content="Discover my work in Quantum Computing, Generative AI, Flask, Python and more.">
+    <meta name="twitter:title" content="Vaibhav Pandey | Backend Developer, AI Engineer & Data Analyst">
+    <meta name="twitter:description" content="Discover my work in Backend Development, AI Engineering, Data Analysis, and more.">
     <meta name="twitter:image" content="https://your-portfolio-url.com/preview-image.jpg">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -42,6 +42,28 @@
             --border-color: #e5e7eb;
             --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --container-padding: clamp(1rem, 5vw, 2rem);
+            --section-spacing: clamp(2rem, 8vw, 4rem);
+            --card-padding: clamp(1.5rem, 4vw, 2rem);
+            --border-radius: clamp(0.5rem, 2vw, 1rem);
+            --navbar-height: 4rem;
+            --navbar-bg: rgba(255, 255, 255, 0.8);
+            --navbar-bg-dark: rgba(17, 24, 39, 0.8);
+            --transition-speed: 0.3s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #f9fafb;
+                --text-secondary: #d1d5db;
+                --bg-primary: #111827;
+                --bg-secondary: #1f2937;
+                --bg-card: #374151;
+                --border-color: #4b5563;
+                --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+                --navbar-bg: var(--navbar-bg-dark);
+            }
         }
 
         [data-theme="dark"] {
@@ -53,6 +75,18 @@
             --border-color: #4b5563;
             --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --navbar-bg: var(--navbar-bg-dark);
+        }
+
+        [data-theme="light"] {
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         body {
@@ -61,146 +95,173 @@
             color: var(--text-primary);
             background-color: var(--bg-primary);
             transition: all 0.3s ease;
+            font-size: clamp(14px, 1.5vw, 16px);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: 0 var(--container-padding);
         }
 
         /* Header */
         header {
-            background: var(--bg-card);
-            box-shadow: var(--shadow);
+            background: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            height: var(--navbar-height);
+            transition: transform var(--transition-speed) ease;
         }
 
         nav {
+            height: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0 var(--container-padding);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: transform var(--transition-speed) ease;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
+        .logo:hover {
+            transform: translateY(-1px);
         }
 
         .theme-toggle {
             background: none;
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            border: none;
+            width: 2.5rem;
+            height: 2.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
             color: var(--text-primary);
+            transition: transform var(--transition-speed) ease;
         }
 
         .theme-toggle:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle i {
+            font-size: 1.25rem;
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 8rem 0 4rem;
+            padding: calc(var(--navbar-height) + 3rem) 0 clamp(3rem, 8vw, 4rem);
             text-align: center;
+            margin-top: 0;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
             opacity: 0.9;
+            max-width: 800px;
+            margin-inline: auto;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: clamp(1rem, 3vw, 2rem);
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
         }
 
         .contact-info span {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
             color: white;
             font-size: 1.5rem;
-            transition: transform 0.3s ease;
+            transition: all var(--transition-speed) ease;
+            padding: 0.75rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
         }
 
         .social-links a:hover {
             transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* Sections */
         section {
-            padding: 4rem 0;
+            padding: var(--section-spacing) 0;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: clamp(2rem, 6vw, 3rem);
             color: var(--primary-color);
             font-weight: 700;
+            line-height: 1.2;
         }
 
         /* Cards */
         .card {
             background: var(--bg-card);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: var(--border-radius);
+            padding: var(--card-padding);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -299,8 +360,8 @@
         /* Certifications */
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(1.25rem, 3vw, 1.5rem);
         }
 
         .cert-card {
@@ -384,8 +445,8 @@
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
         }
 
         .skill-category h3 {
@@ -397,16 +458,16 @@
         .skill-items {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 1rem;
+            gap: clamp(0.75rem, 2vw, 1rem);
         }
 
         .skill-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2vw, 1rem);
             background: var(--bg-secondary);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             transition: all 0.3s ease;
             text-align: center;
         }
@@ -418,20 +479,20 @@
         }
 
         .skill-item i {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 0.5rem;
         }
 
         .skill-item span {
-            font-size: 0.8rem;
+            font-size: clamp(0.75rem, 1.2vw, 0.875rem);
             font-weight: 500;
         }
 
         /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: clamp(1.5rem, 4vw, 2rem);
         }
 
         .project-card {
@@ -442,6 +503,17 @@
         .project-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.6;
         }
 
         .project-tech {
@@ -456,7 +528,10 @@
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
         }
 
         .project-link {
@@ -476,17 +551,17 @@
         /* Achievements */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1.25rem, 3vw, 1.5rem);
         }
 
         .achievement-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
+            gap: clamp(0.75rem, 2vw, 1rem);
+            padding: clamp(1.25rem, 3vw, 1.5rem);
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
         }
@@ -497,7 +572,7 @@
         }
 
         .achievement-icon {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
             color: var(--primary-color);
             min-width: 40px;
         }
@@ -506,63 +581,28 @@
         footer {
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
+            padding: clamp(1.5rem, 4vw, 2rem) 0;
             text-align: center;
             color: var(--text-secondary);
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
+            .mobile-menu-btn {
                 display: none;
             }
+        }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
+        /* Add smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--navbar-height);
+        }
 
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skill-items {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            }
-
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cert-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .cert-icon {
-                margin: 0 auto;
-            }
-
-            .training-skills {
-                justify-content: flex-start;
-            }
+        /* Update hero section padding */
+        .hero {
+            padding-top: calc(var(--navbar-height) + 3rem);
         }
 
         /* Animations */
@@ -580,26 +620,13 @@
         .fade-in-up {
             animation: fadeInUp 0.6s ease-out;
         }
-
-        /* Scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">VP</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-            </ul>
-            <button class="theme-toggle" id="theme-toggle">
+            <a href="#home" class="logo">VP</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
             </button>
         </nav>
@@ -609,16 +636,17 @@
         <section id="home" class="hero">
             <div class="container">
                 <h1>Vaibhav Pandey</h1>
-                <p>Computer Science Engineer | Full-Stack Developer | Quantum Computing Enthusiast</p>
+                <p>Backend Developer | AI Engineer | Data Analyst | Quantum Computing Enthusiast</p>
                 <div class="contact-info">
                     <span><i class="fas fa-envelope"></i> pandey.vaibhav311005@gmail.com</span>
                     <span><i class="fas fa-phone"></i> +91 9555788790</span>
                     <span><i class="fas fa-map-marker-alt"></i> Kanpur, Uttar Pradesh, India</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Its-Vaibhav-2005" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.hackerrank.com/profile/pandey_vaibhav32" target="_blank"><i class="fab fa-hackerrank"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Its-Vaibhav-2005" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/u/vaibhav_pandey_2005/" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+                    <a href="https://www.hackerrank.com/profile/pandey_vaibhav32" target="_blank" title="HackerRank"><i class="fab fa-hackerrank"></i></a>
                 </div>
             </div>
         </section>
@@ -627,7 +655,7 @@
             <div class="container">
                 <h2 class="section-title">Professional Summary</h2>
                 <div class="summary-content">
-                    <p>Highly motivated and self-driven Computer Science Engineer (B.Tech, Class of 2027) with strong expertise in Python, Data Structures & Algorithms, Web Development, Quantum Computing, Data Science, Machine Learning, and Generative AI. Hands-on experience in full-stack development, automation, quantum cryptography research, and third-party API integrations. Fast learner with strong problem-solving ability and continuous passion for exploring cutting-edge technologies.</p>
+                    <p>Highly motivated and self-driven Computer Science Engineer (B.Tech, Class of 2027) with strong expertise in Backend Development, AI Engineering, Data Analysis, and Python Development. Specialized in building scalable backend systems, developing AI/ML solutions, and performing data-driven analysis. Hands-on experience in API development, database optimization, machine learning model deployment, and data visualization. Proficient in quantum computing research and implementation. Fast learner with strong problem-solving ability and continuous passion for exploring cutting-edge technologies.</p>
                 </div>
             </div>
         </section>
@@ -847,12 +875,12 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
                     <div class="card project-card">
-                        <h3>Quantum-RSA-Analysis</h3>
+                        <h3><i class="fas fa-atom"></i> Quantum-RSA-Analysis</h3>
                         <p>Researched and simulated the effect of Shor's Algorithm on RSA encryption. Built quantum circuits using IBM Qiskit for simulating factorization and analyzed vulnerabilities in classical cryptosystems through quantum models.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Qiskit</span>
-                            <span class="tech-tag">Quantum Computing</span>
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-atom"></i> Qiskit</span>
+                            <span class="tech-tag"><i class="fas fa-microchip"></i> Quantum Computing</span>
                         </div>
                         <a href="https://github.com/Its-Vaibhav-2005/Quantum-RSA-Analysis" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
@@ -860,14 +888,14 @@
                     </div>
 
                     <div class="card project-card">
-                        <h3>Multi-Platform OAuth Integration</h3>
+                        <h3><i class="fas fa-shield-alt"></i> Multi-Platform OAuth Integration</h3>
                         <p>Developed full OAuth 2.0 authentication system with Google and GitHub providers. Integrated both Google Drive and GitHub APIs to fetch real-time data with secure token handling and scope management.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">OAuth 2.0</span>
-                            <span class="tech-tag">Google Drive API</span>
-                            <span class="tech-tag">GitHub API</span>
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-flask"></i> Flask</span>
+                            <span class="tech-tag"><i class="fas fa-key"></i> OAuth 2.0</span>
+                            <span class="tech-tag"><i class="fab fa-google"></i> Google Drive API</span>
+                            <span class="tech-tag"><i class="fab fa-github"></i> GitHub API</span>
                         </div>
                         <a href="https://github.com/Its-Vaibhav-2005/Multi-Platform-OAuth-Integration" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
@@ -875,11 +903,11 @@
                     </div>
 
                     <div class="card project-card">
-                        <h3>AutoLeetcode</h3>
+                        <h3><i class="fas fa-robot"></i> AutoLeetcode</h3>
                         <p>Built a Selenium-based desktop automation tool to auto-solve and track LeetCode submissions. Implemented streak management and consistency monitoring features with automated problem fetching and progress visualization.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-cogs"></i> Selenium</span>
                         </div>
                         <a href="https://github.com/Its-Vaibhav-2005/AutoLeetcode" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
@@ -887,14 +915,42 @@
                     </div>
 
                     <div class="card project-card">
-                        <h3>Login-Git</h3>
+                        <h3><i class="fas fa-sign-in-alt"></i> Login-Git</h3>
                         <p>Built simple GitHub login integration using OAuth for web applications. Managed repository information using GitHub's REST APIs post authentication.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">GitHub OAuth</span>
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-flask"></i> Flask</span>
+                            <span class="tech-tag"><i class="fab fa-github"></i> GitHub OAuth</span>
                         </div>
                         <a href="https://github.com/Its-Vaibhav-2005/Login-Git" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+
+                    <div class="card project-card">
+                        <h3><i class="fas fa-fingerprint"></i> Quantum Hash Circuits</h3>
+                        <p>Implemented and experimented with Quantum Hash Circuits for 4-16 qubits using IBM Qiskit. Developed modular and reusable quantum circuits for post-quantum cryptography applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-atom"></i> Qiskit</span>
+                            <span class="tech-tag"><i class="fas fa-microchip"></i> Quantum Computing</span>
+                            <span class="tech-tag"><i class="fas fa-shield-alt"></i> Cryptography</span>
+                        </div>
+                        <a href="https://github.com/Its-Vaibhav-2005/Quantum-Hash-Circuits" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+
+                    <div class="card project-card">
+                        <h3><i class="fas fa-headphones"></i> Sound Therapy</h3>
+                        <p>Developed a sound therapy application using binaural beats to help users reduce stress, improve focus, and enhance sleep quality. Implemented various frequency patterns for different therapeutic effects.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-music"></i> Audio Processing</span>
+                            <span class="tech-tag"><i class="fas fa-wave-square"></i> Signal Processing</span>
+                            <span class="tech-tag"><i class="fas fa-heartbeat"></i> Health Tech</span>
+                        </div>
+                        <a href="https://github.com/Its-Vaibhav-2005/Sound-Therapy" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
@@ -1050,25 +1106,19 @@
     </footer>
 
     <script>
-        // Theme toggle functionality
+        // Theme handling
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         const themeIcon = themeToggle.querySelector('i');
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
+        // Function to set theme
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateThemeIcon(theme);
+        }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
+        // Function to update theme icon
         function updateThemeIcon(theme) {
             if (theme === 'dark') {
                 themeIcon.className = 'fas fa-sun';
@@ -1076,6 +1126,38 @@
                 themeIcon.className = 'fas fa-moon';
             }
         }
+
+        // Function to get system theme
+        function getSystemTheme() {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        // Initialize theme
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme(getSystemTheme());
+            }
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Theme toggle click handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Initialize theme on page load
+        initializeTheme();
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1110,17 +1192,44 @@
             observer.observe(el);
         });
 
-        // Header scroll effect
+        // Enhanced navbar scroll behavior
         let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                header.style.transform = 'translateY(-100%)';
+        const header = document.querySelector('header');
+        const navbarHeight = header.offsetHeight;
+
+        function updateNavbar() {
+            const currentScrollY = window.scrollY;
+            
+            // Hide/show navbar on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > navbarHeight) {
+                header.style.transform = `translateY(-${navbarHeight}px)`;
             } else {
                 header.style.transform = 'translateY(0)';
             }
-            lastScrollY = window.scrollY;
+
+            lastScrollY = currentScrollY;
+        }
+
+        // Throttle scroll event for better performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateNavbar();
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
+
+        // Update navbar on page load
+        updateNavbar();
+
+        // Remove mobile menu button related JavaScript as nav links are removed
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.remove();
+        }
     </script>
 </body>
 </html>
