@@ -100,7 +100,7 @@
         }
 
         .container {
-            width: min(100% - 2rem, 1200px);
+            width: min(90%, 1200px);
             margin-inline: auto;
             padding: 0 var(--container-padding);
         }
@@ -185,6 +185,210 @@
 
         .theme-toggle i {
             font-size: 1.25rem;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.2rem;
+                color: var(--text-primary);
+                border-radius: var(--border-radius);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: var(--primary-color);
+                color: white;
+                transform: scale(1.05);
+            }
+
+            /* Add overlay when menu is active */
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .nav-overlay.active {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Style the mobile menu button */
+            .mobile-menu-btn {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: var(--bg-card);
+                box-shadow: var(--shadow);
+                transition: all 0.3s ease;
+            }
+
+            .mobile-menu-btn:hover {
+                transform: scale(1.1);
+                background: var(--primary-color);
+                color: white;
+            }
+
+            .mobile-menu-btn.active {
+                background: var(--primary-color);
+                color: white;
+            }
+
+            /* Center all sections on mobile */
+            section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .section-title {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            /* Adjust card layouts for mobile */
+            .card {
+                width: 100%;
+                margin: 1rem 0;
+                transform: translateY(0);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            /* Improve touch targets */
+            .skill-item, 
+            .project-link,
+            .cert-link,
+            .social-links a {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Add touch feedback */
+            .skill-item:active,
+            .project-link:active,
+            .cert-link:active,
+            .social-links a:active {
+                transform: scale(0.95);
+            }
+
+            /* Improve scrolling experience */
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 80px;
+            }
+
+            /* Add pull-to-refresh animation */
+            @keyframes pull-to-refresh {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(20px); }
+                100% { transform: translateY(0); }
+            }
+
+            .pull-to-refresh {
+                animation: pull-to-refresh 1s ease;
+            }
+        }
+
+        /* Add interactive hover effects */
+        .card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Add loading animation for sections */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-loading {
+            animation: fadeIn 0.6s ease forwards;
         }
 
         /* Hero Section */
@@ -610,121 +814,6 @@
             font-size: clamp(0.875rem, 1.5vw, 1rem);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                text-align: center;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-info span {
-                width: auto;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .summary-content {
-                font-size: 1rem;
-                text-align: center;
-            }
-
-            .education-grid,
-            .certifications-grid,
-            .skills-grid,
-            .projects-grid,
-            .achievements-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .card,
-            .achievement-item {
-                padding: 1.25rem;
-                text-align: center;
-                margin: 0 auto;
-                max-width: 100%;
-            }
-
-            .training-skills,
-            .project-tech {
-                justify-content: center;
-            }
-
-            .training-item {
-                text-align: left; /* Keep text aligned left within the training item */
-            }
-
-            .cert-card,
-            .achievement-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .cert-icon {
-                margin-bottom: 0.5rem;
-            }
-
-            .skill-item {
-                padding: 0.75rem;
-            }
-
-            .skill-category h3 {
-                text-align: center;
-            }
-
-            .project-card h3 {
-                justify-content: center;
-            }
-
-            .project-link {
-                justify-content: center;
-            }
-        }
-
-        /* Add smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--navbar-height);
-        }
-
-        /* Update hero section padding */
-        .hero {
-            padding-top: calc(var(--navbar-height) + 3rem);
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -746,7 +835,11 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo">VP</a>
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay" id="nav-overlay"></div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -1352,30 +1445,102 @@
         // Update navbar on page load
         updateNavbar();
 
-        // Remove mobile menu button related JavaScript as nav links are removed
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.remove();
+        // Mobile menu handling
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+            
+            // Update menu icon
+            mobileMenuBtn.innerHTML = isMenuOpen ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
         }
 
-        // Remove mobile menu related event listeners
-        document.removeEventListener('click', (e) => {
-            const nav = document.querySelector('.nav-links');
-            const btn = document.querySelector('.mobile-menu-btn');
-            if (!nav.contains(e.target) && !btn.contains(e.target)) {
-                nav.classList.remove('active');
-                if (btn) btn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on window resize if open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && isMenuOpen) {
+                toggleMenu();
             }
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.removeEventListener('click', () => {
-                const nav = document.querySelector('.nav-links');
-                const btn = document.querySelector('.mobile-menu-btn');
-                nav.classList.remove('active');
-                if (btn) btn.innerHTML = '<i class="fas fa-bars"></i>';
+        // Add section loading animation
+        const sections = document.querySelectorAll('section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-loading');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Add pull-to-refresh functionality
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 100;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            const swipeDistance = touchEndY - touchStartY;
+
+            if (swipeDistance > minSwipeDistance && window.scrollY === 0) {
+                document.body.classList.add('pull-to-refresh');
+                setTimeout(() => {
+                    document.body.classList.remove('pull-to-refresh');
+                    location.reload();
+                }, 1000);
+            }
+        });
+
+        // Add touch feedback to interactive elements
+        const interactiveElements = document.querySelectorAll('.skill-item, .project-link, .cert-link, .social-links a');
+        interactiveElements.forEach(element => {
+            element.addEventListener('touchstart', () => {
+                element.style.transform = 'scale(0.95)';
+            });
+
+            element.addEventListener('touchend', () => {
+                element.style.transform = '';
             });
         });
+
+        // Improve scroll performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(() => {
+                    scrollTimeout = null;
+                    updateNavbar();
+                }, 100);
+            }
+        }, { passive: true });
 
     </script>
 </body>
