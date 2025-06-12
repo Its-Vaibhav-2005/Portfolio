@@ -102,7 +102,7 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ---
 
-### Multi-Platform OAuth Integration — *Web Application*
+### [Multi-Platform OAuth Integration](https://github.com/Its-Vaibhav-2005/Multi-Platform-OAuth-Integration) — *Web Application*
 
 **Technologies:** Python, Flask, OAuth 2.0, Google Drive API, GitHub API
 
