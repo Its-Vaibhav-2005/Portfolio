@@ -143,6 +143,29 @@
             transform: translateY(-1px);
         }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: color var(--transition-speed) ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
         .theme-toggle {
             background: none;
             border: none;
@@ -589,8 +612,105 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
             .mobile-menu-btn {
                 display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-info span {
+                width: auto;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .summary-content {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .education-grid,
+            .certifications-grid,
+            .skills-grid,
+            .projects-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card,
+            .achievement-item {
+                padding: 1.25rem;
+                text-align: center;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .training-skills,
+            .project-tech {
+                justify-content: center;
+            }
+
+            .training-item {
+                text-align: left; /* Keep text aligned left within the training item */
+            }
+
+            .cert-card,
+            .achievement-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .cert-icon {
+                margin-bottom: 0.5rem;
+            }
+
+            .skill-item {
+                padding: 0.75rem;
+            }
+
+            .skill-category h3 {
+                text-align: center;
+            }
+
+            .project-card h3 {
+                justify-content: center;
+            }
+
+            .project-link {
+                justify-content: center;
             }
         }
 
@@ -626,6 +746,13 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo">VP</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+            </ul>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
             </button>
@@ -1230,6 +1357,26 @@
         if (mobileMenuBtn) {
             mobileMenuBtn.remove();
         }
+
+        // Remove mobile menu related event listeners
+        document.removeEventListener('click', (e) => {
+            const nav = document.querySelector('.nav-links');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.classList.remove('active');
+                if (btn) btn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.removeEventListener('click', () => {
+                const nav = document.querySelector('.nav-links');
+                const btn = document.querySelector('.mobile-menu-btn');
+                nav.classList.remove('active');
+                if (btn) btn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
     </script>
 </body>
 </html>
