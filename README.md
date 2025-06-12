@@ -59,9 +59,9 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ### Quantum Computing:
 
-* Quantum Algorithms (Shor's Algorithm, Quantum Circuits)
+* Quantum Algorithms (Algorithms, Quantum Circuits)
 * Qiskit (IBM Quantum)
-* RSA Cryptanalysis
+* Cryptography
 
 ### AI, ML & Data Science:
 
