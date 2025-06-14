@@ -90,6 +90,17 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ## PROJECTS
 
+### [ToDo](https://github.com/Its-Vaibhav-2005/ToDo) — *Full-Stack Project*
+
+**Technologies:** HTML, CSS, JavaScript, Python, SQLite, PWA
+
+* Developed a fully functional ToDo application with intuitive and responsive UI.
+* Integrated Progressive Web App (PWA) features for offline access and installable experience.
+* Implemented complete CRUD operations with task categorization and local storage for data persistence.
+* Designed seamless task management workflow with clean backend architecture.
+
+---
+
 ### [Quantum-RSA-Analysis](https://github.com/Its-Vaibhav-2005/Quantum-RSA-Analysis) — *Research Project*
 
 **Technologies:** Python, Qiskit, Quantum Computing
