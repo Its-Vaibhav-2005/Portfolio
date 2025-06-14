@@ -1,6 +1,6 @@
 # Vaibhav Pandey
 
-📧 [pandey.vaibhav311005@gmail.com](mailto:pandey.vaibhav311005@gmail.com) | 📞 +91 9555788790
+📧 [pandey.vaibhav311005@gmail.com](mailto:pandey.vaibhav311005@gmail.com) | 📞 +91 9555788790 | 
 🌐 [LinkedIn](https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/) | [GitHub](https://github.com/Its-Vaibhav-2005) | [LeetCode](https://leetcode.com/u/vaibhav_pandey_2005/) | [HackerRank](https://www.hackerrank.com/profile/pandey_vaibhav32)
 📍 Kanpur, Uttar Pradesh, India
 
