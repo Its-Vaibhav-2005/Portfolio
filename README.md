@@ -101,6 +101,18 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ---
 
+### [Book Review API](https://github.com/Its-Vaibhav-2005/BookReview-RESTAPI) — *Backend REST API Project*
+
+**Technologies:** Python, Flask, SQLAlchemy, SQLite, JWT
+
+* Developed a secure RESTful API for managing books, users, and reviews.
+* Implemented user authentication (JWT) with role-based access control (Admin/User).
+* Designed modular code architecture with Flask Blueprints and SQLAlchemy ORM.
+* Handled CRUD operations for books and integrated a book review system with proper error handling.
+* Secured sensitive routes with token-based authorization and implemented comprehensive API documentation.
+
+
+---
 ### [Quantum-RSA-Analysis](https://github.com/Its-Vaibhav-2005/Quantum-RSA-Analysis) — *Research Project*
 
 **Technologies:** Python, Qiskit, Quantum Computing
