@@ -90,6 +90,17 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ## PROJECTS
 
+### [Vending Machine API](https://github.com/Its-Vaibhav-2005/Vending-API) — *Backend REST API Project*
+
+**Technologies:** Python, Flask, SQLAlchemy, SQLite, JWT
+
+* Developed a robust RESTful API to manage vending machine operations, including item inventory, secure payments, and analytics.
+* Implemented JWT-based authentication with role-based access control (Admin/Customer).
+* Built modular architecture using Flask Blueprints and SQLAlchemy ORM.
+* Enabled item CRUD operations, secure payment processing, and detailed user-specific analytics.
+* Included security features like hashed passwords, token validation, and SQL injection protection.
+
+
 ### [ToDo](https://github.com/Its-Vaibhav-2005/ToDo) — *Full-Stack Project*
 
 **Technologies:** HTML, CSS, JavaScript, Python, SQLite, PWA
