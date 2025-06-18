@@ -507,6 +507,55 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
+        /* Contact Info Links Styling */
+        .contact-info span a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .contact-info span a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: width 0.3s ease;
+        }
+
+        .contact-info span a:hover::after {
+            width: 100%;
+        }
+
+        .contact-info span a:hover {
+            color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+        }
+
+        .contact-info span a:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Mobile touch feedback for contact links */
+        @media (max-width: 768px) {
+            .contact-info span a {
+                padding: 0.5rem 0;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .contact-info span a:active {
+                transform: scale(0.98);
+            }
+        }
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -1784,6 +1833,140 @@
                 filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
             }
         }
+
+        /* Location Map Hover Effect */
+        .location-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .location-map {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1000;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            min-width: 320px;
+        }
+
+        .location-map::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+
+        .location-container:hover .location-map {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .location-map iframe {
+            border-radius: 8px;
+            width: 100%;
+            height: 225px;
+            display: block;
+        }
+
+        /* Mobile responsive for location map */
+        @media (max-width: 768px) {
+            .location-map {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1);
+                min-width: 90vw;
+                max-width: 95vw;
+                width: 95vw;
+                height: auto;
+                z-index: 10000;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                background: white;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                border-radius: 16px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .location-map::after,
+            .location-map::before {
+                display: none !important;
+            }
+            .location-container:hover .location-map,
+            .location-container:focus .location-map,
+            .location-container:active .location-map,
+            .location-container.map-active .location-map {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-50%, -50%) scale(1);
+                display: flex;
+            }
+            .location-map iframe {
+                border-radius: 12px 12px 12px 12px;
+                width: 100%;
+                min-width: 0;
+                height: 220px;
+                margin: 0;
+            }
+            .map-close-btn {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 32px;
+                height: 32px;
+                background: var(--primary-color);
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10001;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                transition: background 0.2s, transform 0.2s;
+            }
+            .map-close-btn:active {
+                background: var(--secondary-color);
+                transform: scale(1.1);
+            }
+        }
+        @media (max-width: 480px) {
+            .location-map {
+                min-width: 98vw;
+                max-width: 98vw;
+                width: 98vw;
+                border-radius: 10px;
+            }
+            .location-map iframe {
+                height: 170px;
+            }
+            .map-close-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 1.2rem;
+                top: 4px;
+                right: 4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1823,9 +2006,16 @@
                 <h1>Vaibhav Pandey</h1>
                 <p>Backend Developer | AI Engineer | Data Analyst | Quantum Computing Enthusiast</p>
                 <div class="contact-info">
-                    <span><i class="fas fa-envelope"></i> pandey.vaibhav311005@gmail.com</span>
-                    <span><i class="fas fa-phone"></i> +91 9555788790</span>
-                    <span><i class="fas fa-map-marker-alt"></i> Kanpur, Uttar Pradesh, India</span>
+                    <span><i class="fas fa-envelope"></i> <a href="mailto:pandey.vaibhav311005@gmail.com" target="_blank" rel="noopener noreferrer">pandey.vaibhav311005@gmail.com</a></span>
+                    <span><i class="fas fa-phone"></i> <a href="tel:+919555788790" target="_blank" rel="noopener noreferrer">+91 9555788790</a></span>
+                    <span class="location-container">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <a href="https://maps.app.goo.gl/M6cdqaHSZ7JeRBDu5" target="_blank" rel="noopener noreferrer">Kanpur, Uttar Pradesh, India</a>
+                        <div class="location-map">
+                            <button class="map-close-btn" aria-label="Close map" tabindex="0">&times;</button>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14294.893851487266!2d80.3255841!3d26.4001204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c46f981ea464f%3A0xcff0387ee8743719!2sYashoda%20Nagar%20Rd%2C%20Kanpur%2C%20Uttar%20Pradesh%20208011!5e0!3m2!1sen!2sin!4v1750213491880!5m2!1sen!2sin" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </span>
                 </div>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/vaibhav-pandey-233ab62a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -2760,6 +2950,208 @@
         // Initialize reveal animations
         initRevealAnimations();
 
+        // Initialize projects carousel
+        initProjectsCarousel();
+
+        // Location Map Mobile Touch Functionality
+        function initLocationMap() {
+            const locationContainer = document.querySelector('.location-container');
+            if (!locationContainer) return;
+
+            let isMapOpen = false;
+            let touchStartTime = 0;
+            let touchStartY = 0;
+
+            // Function to open map
+            function openMap() {
+                if (isMapOpen) return;
+                
+                isMapOpen = true;
+                locationContainer.classList.add('map-active');
+                document.body.classList.add('map-open');
+                
+                // Add escape key listener
+                document.addEventListener('keydown', handleEscapeKey);
+                
+                // Add click outside listener
+                document.addEventListener('click', handleClickOutside);
+            }
+
+            // Function to close map
+            function closeMap() {
+                if (!isMapOpen) return;
+                
+                isMapOpen = false;
+                locationContainer.classList.remove('map-active');
+                document.body.classList.remove('map-open');
+                
+                // Remove event listeners
+                document.removeEventListener('keydown', handleEscapeKey);
+                document.removeEventListener('click', handleClickOutside);
+            }
+
+            // Handle escape key
+            function handleEscapeKey(e) {
+                if (e.key === 'Escape') {
+                    closeMap();
+                }
+            }
+
+            // Handle click outside map
+            function handleClickOutside(e) {
+                const map = locationContainer.querySelector('.location-map');
+                if (map && !map.contains(e.target) && !locationContainer.contains(e.target)) {
+                    closeMap();
+                }
+            }
+
+            // Handle close button click
+            function handleCloseButton(e) {
+                if (e.target.closest('.location-map')) {
+                    const closeBtn = e.target.closest('.location-map::after');
+                    if (closeBtn) {
+                        closeMap();
+                    }
+                }
+            }
+
+            // Touch event handlers
+            function handleTouchStart(e) {
+                touchStartTime = Date.now();
+                touchStartY = e.touches[0].clientY;
+            }
+
+            function handleTouchEnd(e) {
+                const touchEndTime = Date.now();
+                const touchEndY = e.changedTouches[0].clientY;
+                const touchDuration = touchEndTime - touchStartTime;
+                const touchDistance = Math.abs(touchEndY - touchStartY);
+
+                // Only trigger if it's a short tap (less than 300ms) and minimal movement
+                if (touchDuration < 300 && touchDistance < 10) {
+                    e.preventDefault();
+                    
+                    if (isMapOpen) {
+                        closeMap();
+                    } else {
+                        openMap();
+                    }
+                }
+            }
+
+            // Mouse event handlers for desktop
+            function handleMouseEnter() {
+                if (window.innerWidth > 768) {
+                    // Only show on hover for desktop
+                    locationContainer.classList.add('map-active');
+                }
+            }
+
+            function handleMouseLeave() {
+                if (window.innerWidth > 768) {
+                    // Only hide on hover for desktop
+                    locationContainer.classList.remove('map-active');
+                }
+            }
+
+            // Click handler for desktop
+            function handleClick(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    if (isMapOpen) {
+                        closeMap();
+                    } else {
+                        openMap();
+                    }
+                }
+            }
+
+            // Add event listeners
+            if ('ontouchstart' in window) {
+                // Mobile touch events
+                locationContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+                locationContainer.addEventListener('touchend', handleTouchEnd, { passive: false });
+                locationContainer.addEventListener('click', handleClick);
+            } else {
+                // Desktop hover events
+                locationContainer.addEventListener('mouseenter', handleMouseEnter);
+                locationContainer.addEventListener('mouseleave', handleMouseLeave);
+            }
+
+            // Handle close button clicks
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('.location-map::after') || e.target.closest('.location-map::after')) {
+                    closeMap();
+                }
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && isMapOpen) {
+                    closeMap();
+                }
+            });
+
+            // Handle orientation change on mobile
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    if (isMapOpen) {
+                        closeMap();
+                    }
+                }, 100);
+            });
+
+            // Add swipe to close functionality for mobile
+            let swipeStartX = 0;
+            let swipeStartY = 0;
+
+            function handleSwipeStart(e) {
+                if (!isMapOpen) return;
+                swipeStartX = e.touches[0].clientX;
+                swipeStartY = e.touches[0].clientY;
+            }
+
+            function handleSwipeMove(e) {
+                if (!isMapOpen) return;
+                e.preventDefault();
+            }
+
+            function handleSwipeEnd(e) {
+                if (!isMapOpen) return;
+                
+                const swipeEndX = e.changedTouches[0].clientX;
+                const swipeEndY = e.changedTouches[0].clientY;
+                const swipeDistanceX = Math.abs(swipeEndX - swipeStartX);
+                const swipeDistanceY = Math.abs(swipeEndY - swipeStartY);
+
+                // Close on downward swipe or long horizontal swipe
+                if (swipeDistanceY > 50 && swipeEndY > swipeStartY || swipeDistanceX > 100) {
+                    closeMap();
+                }
+            }
+
+            // Add swipe listeners to map
+            const map = locationContainer.querySelector('.location-map');
+            if (map) {
+                map.addEventListener('touchstart', handleSwipeStart, { passive: true });
+                map.addEventListener('touchmove', handleSwipeMove, { passive: false });
+                map.addEventListener('touchend', handleSwipeEnd, { passive: true });
+            }
+        }
+
+        // Initialize location map functionality
+        initLocationMap();
+
+        // Add event listener for close button inside map (mobile)
+        document.addEventListener('click', function(e) {
+            if (e.target.classList && e.target.classList.contains('map-close-btn')) {
+                const locationContainer = e.target.closest('.location-container');
+                if (locationContainer) {
+                    locationContainer.classList.remove('map-active');
+                    document.body.classList.remove('map-open');
+                }
+            }
+        });
     </script>
 </body>
 </html>
