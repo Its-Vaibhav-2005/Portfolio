@@ -90,6 +90,19 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ## PROJECTS
 
+### [Blog API](https://github.com/Its-Vaibhav-2005/Blog-API) — *Backend REST API Project*
+
+**Technologies:** Python, Flask, SQLAlchemy, SQLite, JWT
+
+* Developed a RESTful API for a blogging platform supporting user registration, JWT-based authentication, and full CRUD operations for blog posts.
+* Implemented secure role-based access control with author-only blog management.
+* Designed modular project architecture using Flask Blueprints and SQLAlchemy ORM.
+* Integrated search functionality and user-specific blog filtering.
+* Protected sensitive routes with JWT token authentication and proper authorization layers.
+* Documented all endpoints with clear, consistent API structure and included example usage with cURL.
+
+
+
 ### [Vending Machine API](https://github.com/Its-Vaibhav-2005/Vending-API) — *Backend REST API Project*
 
 **Technologies:** Python, Flask, SQLAlchemy, SQLite, JWT
@@ -189,7 +202,7 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 
 ## CERTIFICATIONS
 
-* [Python 3 (University of Michigan)](https://drive.google.com/file/d/1khrOu-4hBR4Oac9tcYiaMENGySp_8oJJ/view?usp=sharing)
+* [Python 3 (Internshala)](https://drive.google.com/file/d/1khrOu-4hBR4Oac9tcYiaMENGySp_8oJJ/view?usp=sharing)
 * [HTML 5](https://drive.google.com/file/d/1IrNyB6QzfdX5QuIUbsT96TRgqveXL2XZ/view?usp=sharing)
 * [CSS 3](https://drive.google.com/file/d/1vTP2UzcTOsWbjF77q0yPhks--uhXyp8y/view?usp=sharing)
 * [SQL](https://drive.google.com/file/d/1Q5iRClHQqcbTGkfyzWu1i3rkdfXJJzgx/view?usp=sharing)
@@ -226,4 +239,6 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 * Effective communicator, team collaborator, and independent learner.
 * Passionate about building scalable systems and solving real-world problems.
 * Actively growing technical skillset across multiple domains.
+
+---
 
