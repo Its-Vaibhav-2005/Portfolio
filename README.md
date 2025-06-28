@@ -113,6 +113,16 @@ Pranveer Singh Institute of Technology, Kanpur, Uttar Pradesh
 * Enabled item CRUD operations, secure payment processing, and detailed user-specific analytics.
 * Included security features like hashed passwords, token validation, and SQL injection protection.
 
+### [Monitor System](https://github.com/Its-Vaibhav-2005/Monitor-System) — *Bash-based Filesystem Monitor*
+
+**Technologies:** Bash, inotify-tools
+
+* Created a Bash script that continuously monitors a target directory for real-time file changes including creation, modification, and deletion.
+* Used `inotifywait` to efficiently listen for filesystem events and log them to a dedicated log file with formatted timestamps.
+* Implemented visual feedback in the terminal using color-coded outputs to distinguish between event types.
+* Added conditional logic to avoid recursive logging of the log file itself.
+* Designed for portability and ease of use across Debian, Arch, and Fedora systems with minimal dependencies.
+
 
 ### [ToDo](https://github.com/Its-Vaibhav-2005/ToDo) — *Full-Stack Project*
 
